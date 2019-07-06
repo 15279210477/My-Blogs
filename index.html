@@ -9,7 +9,7 @@
 </body>
 </html>
 <script type="text/javascript">
-	while(true){
+	a:while(true){
 		var sum=0;	//原总价
 		var sumsub=0;	//总折扣价
 		var lastPrice=0;	//最后输入衣服价格
@@ -19,6 +19,8 @@
 			var a=prompt("请输入第"+ i +"件的价格")-0;	//本件衣服的价格
 			if(a==0){
 				break;
+			}else if(a==1){
+				break a;
 			}
 			sum = sum + a;
 			var priceD=Math.floor(a/200)*80;	//下件衣服的折扣价	 显示用
