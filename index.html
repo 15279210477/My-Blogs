@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>123</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+	var sum=0;
+	var sumsub=0;
+	var i=1;
+	var price=0;
+	while(true){
+		var a=prompt("请输入第"+ i +"件的价格")-0;
+		if(a==0){
+			break;
+		}
+		sum = sum + a;
+		if(price>200){
+            sumsub= Math.floor(price/200)*80 + sumsub;
+        }
+        price=a;
+		i++;
+	}
+	var priceSum=sum-sumsub;
+	document.writeln("原价:" + sum);
+	document.writeln("折扣价:" + sumsub);
+	document.writeln("折后价:" + priceSum);
+</script>
