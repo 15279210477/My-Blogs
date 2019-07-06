@@ -9,23 +9,29 @@
 </body>
 </html>
 <script type="text/javascript">
-	var sum=0;
-	var sumsub=0;
-	var i=1;
-	var price=0;
+	var sum=0;	//原总价
+	var sumsub=0;	//总折扣价
+	var lastPrice=0;	//最后一件衣服价格
+	var i=1;	
+	var priceSum=0;	//折后总价
 	while(true){
 		var a=prompt("请输入第"+ i +"件的价格")-0;
 		if(a==0){
 			break;
 		}
 		sum = sum + a;
-		if(price>200){
-            sumsub= Math.floor(price/200)*80 + sumsub;
+		if(lastPrice>200){
+			var priceDis=Math.floor(lastPrice/200)*80;
+            if(a<=priceDis){
+                sumsub= a + sumsub;
+            }else {
+                sumsub=priceDis+sumsub;
+            }
         }
-        price=a;
+        lastPrice=a;
 		i++;
 	}
-	var priceSum=sum-sumsub;
+	priceSum=sum-sumsub;
 	document.writeln("原价:" + sum);
 	document.writeln("折扣价:" + sumsub);
 	document.writeln("折后价:" + priceSum);
