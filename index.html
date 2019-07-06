@@ -5,7 +5,7 @@
 	<title>123</title>
 </head>
 <body>
-	
+	<h1>艾莱依七月折扣活动 每满200送80 </h1>
 </body>
 </html>
 <script type="text/javascript">
@@ -15,22 +15,28 @@
 	var i=1;	
 	var priceSum=0;	//折后总价
 	while(true){
-		var a=prompt("请输入第"+ i +"件的价格")-0;
+		var a=prompt("请输入第"+ i +"件的价格")-0;	//本件衣服的价格
 		if(a==0){
 			break;
 		}
 		sum = sum + a;
 		var priceD=Math.floor(a/200)*80;	//下件衣服折扣价	显示用
-		var priceDis=Math.floor(lastPrice/200)*80;	//下件衣服折扣价	计算用
+		var priceDis=Math.floor(lastPrice/200)*80;	//上件衣服折扣价	计算用
 		if(lastPrice>=200 && (a<=priceDis)){
             sumsub= a + sumsub;
         }else {
         	sumsub=priceDis+sumsub;
         }
         lastPrice=a;
+        var c;	//折后价取正整数
+        if(a>=priceDis){
+			c=a-priceDis;
+        }else{
+        	c=0;	
+        }
 		document.writeln("第" + i + "件衣服原价:" + a);
 		document.writeln("下件衣服折扣价:-" + priceD);
-		document.writeln("第" + i + "件衣服折后价:" + (a-priceDis) + "<br>");
+		document.writeln("第" + i + "件衣服折后价:" + c + "<br>");
 		i++;
 	}
 	priceSum=sum-sumsub;
