@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> 艾莱依七月折扣活动 </title>
+</head>
+<body>
+	<h1> 艾莱依七月折扣活动 每满200送80 </h1>
+	<h2> 输入0结束查询 输入1查询详细结果</h2>
+</body>
+</html>
+<script type="text/javascript">
+	a:while(true){
+		var sum=0;	//原总价
+		var sumsub=0;	//总折扣价
+		var lastPrice=0;	//最后输入衣服价格
+		var i=1;	//第几件衣服
+		var priceSum=0;	//折后总价
+		while(true){
+			var a=prompt("请输入第"+ i +"件的价格")-0;	//本件衣服的价格
+			if(a==0){
+				break;
+			}else if(a==1){
+				break a;
+			}
+			sum = sum + a;
+			var priceD=Math.floor(a/200)*80;	//下件衣服的折扣价	 显示用
+			var priceDis=Math.floor(lastPrice/200)*80;	//上件衣服折扣价	计算用
+			if(lastPrice>=200 && (a<=priceDis)){	//判断本件衣服价格是否超出上级折扣价
+	            sumsub= a + sumsub;
+ 	        }else {
+	        	sumsub=priceDis+sumsub;
+	        }
+	        lastPrice=a;
+	        var c;	//折后价取正整数
+	        if(a>=priceDis){
+				c=a-priceDis;
+	        }else{
+	        	c=0;	
+	        }
+			document.writeln("第" + i + "件衣服原价:" + a);
+			document.writeln("下件衣服折扣价:-" + priceD);
+			document.writeln("第" + i + "件衣服折后价:" + c + "<br>");
+			i++;
+		}
+		priceSum=sum-sumsub;
+		document.writeln("原价:" + sum);
+		document.writeln("折扣价:" + sumsub);
+		document.writeln("折后价:" + priceSum + "<br>");
+		alert(" 输入0结束查询 输入1查询详细结果\n" +
+			"原价:" + sum + " \n折扣价:" + sumsub + " \n折后价:" + priceSum);
+	}
+</script>
